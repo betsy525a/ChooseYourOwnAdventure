@@ -6,41 +6,69 @@ var game = {
     levels: {
 
         start: {
-            message: "You come across a dark cave",
+            message: "You wake up a subway train. The lights are dim and flickering. You could barely see. You think you see a random body lying on the floor across the cart.",
             choices: [
                 {
-                    text: "Enter the cave",
-                    nextLevel: "cave",
+                    text: "Look around",
+                    nextLevel: "newspaper",
                 },
 
                 {
-                    text: "Keep on moving",
-                    nextLevel: "field",
+                    text: "Check your phone",
+                    nextLevel: "phone",
                 },
             ]
         },
 
-        cave: {
-            background_image: "fire.gif",
-            music: "Final-Fantasy-7-Boss-Battle.mp3",
-            message: "You come across a fire monster or something!",
+        phone: {
+            phone_dead: {
+                message: "Your phone is dead.",
+                choice: [
+                    {
+                        text: "Look around",
+                        nextLevel: "newspaper",
+                    },
+                    ]
+            },
+            phone_alive: {
+                message: 'You have a AMBER Alert telling everyone in New York City to evacuate the area. Confused, you look up what is happening on the news. You read an article with the title "The Zombie Apocalypse is real and it is now in New York City!" As you are about to click on the article to read it, your phone dies.',
+                choice: [
+                    {
+                      text: "Look around with caution...",
+                      nextLevel: "caution",
+                    },
+                    ]
+            },
+        },
+        
+        
+        newspaper: {
+            background_image: "",
+            music: "",
+            message: "You see a bloody newspaper clipping next to you. Read it?",
             choices: [
                 {
-                    text: "Start over",
-                    nextLevel: "start",
+                    text: "Sure, why not?",
+                    nextLevel: "train_moving",
+                },
+                
+                {
+                    text: "No. I don't have time for that. I need to figure out what is going on now!",
+                    nextLevel: "dangerous_train_moving",
                 },
             ]
         },
-
-        field: {
-            message: "Some adventurer you are...",
+        
+        caution: {
+            background_image: "",
+            music: "",
+            message: "You know about the zombie apocalypse now. You must move with caution and you need a weapon immediately.",
             choices: [
                 {
-                    text: "Start over",
-                    nextLevel: "start",
+                    
                 },
             ]
-        },
+        }
 
     }
 };
