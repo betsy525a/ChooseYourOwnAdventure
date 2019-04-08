@@ -88,7 +88,24 @@ var game = {
                 
                 {
                     text: "Stand up to search around the train",
-                    nextLevel: "",
+                    nextLevel: "standing_attack",
+                },
+            ]
+        },
+        
+        standing_attack: {
+            background_image: "dark_train.jpg",
+            music: "",
+            message: "As you are standing up, you accidently drop your phone off your lap and that makes a loud noise. There is a loud scream that comes from across the train, and you see a body get up and make its way to you. Before you can react, it is on top of you. After years of playing and watching zombie games and movies, you recognize that this thing before you is a zombie! As it tries to bite you, you see a knife stuck on the zombie's left shoulder.",
+            choices: [
+                {
+                    text: "Take the knife and kill the zombie",
+                    nextLevel: Math.random() < 0.4? "down_attack_knife_fail" : "down_attack_knife_win",
+                },
+                
+                {
+                    text: "Push the zombie off of you and make a run for it!",
+                    nextLevel: "down_attack_run_fail",
                 },
             ]
         },
@@ -107,11 +124,6 @@ var game = {
                     text: "Go over to them quietly and investigate",
                     nextLevel: Math.random() < 0.6? "falling_down_attack" : "see_zombie_before_attack",
                 },
-                
-                {
-                    text: "Ignore it for now and look again",
-                    nextLevel: "",
-                },
             ]
         },
         
@@ -129,11 +141,6 @@ var game = {
                     text: "Go over to them quietly and investigate",
                     nextLevel: Math.random() < 0.4? "falling_down_attack" : "see_zombie_before_attack",
                 },
-                
-                {
-                    text: "Ignore it for now and look again",
-                    nextLevel: "train_options",
-                },
             ]
         },
         
@@ -143,13 +150,49 @@ var game = {
             message: "As you quietly make your way over to the other side of the train, you slip on something and fall down. There is a loud scream that comes from the body, as it gets up and makes its way to you. Before you can react, it is on top of you. After years of playing and watching Zombie games and movies, you recognize that this thing before you is a zombie! As it tries to bite you, you see a knife stuck on the zombie's left shoulder.",
             choices: [
                 {
-                    text: "Take the kinfe and kill the zombie",
-                    nextLevel: "",
+                    text: "Take the knife and kill the zombie",
+                    nextLevel: Math.random() < 0.4? "down_attack_knife_fail" : "down_attack_knife_win",
                 },
                 
                 {
                     text: "Push the zombie off of you and make a run for it!",
+                    nextLevel: "down_attack_run_fail",
+                },
+            ]
+        },
+        
+        down_attack_knife_fail: {
+            background_image: "game_over.png",
+            music: "",
+            message: "You try to take the knife from the zombie. As you reach out for the knife, the zombie bites your hand. You scream in agony and then you feel the zombie bite your neck. Everything goes dark.",
+            choices: [
+                {
+                    text: "Restart",
+                    nextLevel: "start",
+                }
+            ]
+        },
+        
+        down_attack_knife_win: {
+            background_image: "dark_train.jpg",
+            music: "",
+            message: "You quickly grab the knife and pull it out of the zombie's shoulder. As the zombie tries to bite you again, you stab the zombie in its head. The zombie stops moving. You push the zombie off of you and you realize that the zombie had push you into the middle of the train during your battle.",
+            choices: [
+                {
+                    text: "",
                     nextLevel: "",
+                }
+            ]
+        },
+        
+        down_attack_run_fail: {
+            background_image: "game_over.png",
+            music: "",
+            message: "You push with all your strength and successfully push him off of you. You try to make a run for it, but the zombie is quicker than you think. You feel a bite on your back as you fall over. You feel the zombie eating you while you are on your back. Everything goes dark.",
+            choices: [
+                {
+                    text: "Restart",
+                    nextLevel: "start",
                 },
             ]
         },
@@ -165,6 +208,19 @@ var game = {
                 
                 {
                     text: "Make a run for it!",
+                    nextLevel: "before_attack_run_fail",
+                },
+            ]
+        },
+        
+        before_attack_run_fail: {
+            background_image: "game_over.png",
+            music: "",
+            message: "You try to make a run for it and the zombie hears you start running. The zombie is quicker than you think. You feel a bite on your back as you fall over. You feel the zombie eating you while you are on your back. Everything goes dark.",
+            choices: [
+                {
+                    text: "Restart",
+                    nextLevel: "start",
                 },
             ]
         },
